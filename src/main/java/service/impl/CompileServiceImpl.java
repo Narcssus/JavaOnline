@@ -2,6 +2,7 @@ package service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import common.FileUtils;
 import org.springframework.stereotype.Service;
 
 import javax.tools.JavaCompiler;
@@ -24,7 +25,7 @@ import java.net.URLClassLoader;
 public class CompileServiceImpl {
 
 
-    public static final String BASE_PATH = "D:\\";
+    private static final String BASE_PATH = "D:\\WorkPlace\\";
 
 
     public static boolean compiler(String filePath) {
@@ -33,7 +34,8 @@ public class CompileServiceImpl {
         return result == 0;
     }
 
-    public static void exec(String className, Object... args) {
+
+    public static Object exec(String className, Object... args) {
         //通过反射运行编译好的类
         try {
             URL url = new URL("file:/" + BASE_PATH);
@@ -47,31 +49,44 @@ public class CompileServiceImpl {
 //            Method m = c.getMethod("main", String[].class);
 //            Object res = m.invoke(null, (Object)new String[]{});
 
-            System.out.println(JSON.toJSON(res));
-
+            return res;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) throws IOException {
-
-
-        //通过字符串动态编译:将字符串存储成一个临时文件(io流)，然后调用动态编译方法
-//        String str="public class Hi {public static void main(String[] args){System.out.println(\"HaHa,sxt!\");}}";
-
         String className = "Solution";
 
-        boolean result = compiler(BASE_PATH + className + ".java");
-        System.out.println(result);
+        String filePath = BASE_PATH + className + ".java";
+        String classPath = BASE_PATH + className + ".class";
 
-        //用于传递输入输出
-        JSONObject input = new JSONObject();
-        input.put("key", "value123");
+        FileUtils.write(filePath,
+                "public class Solution {\n" +
+                        "    public int[] twoSum(int[] nums, int target) {\n" +
+                        "        for (int i = 0; i < nums.length; i++) {\n" +
+                        "            for (int j = i + 1; j < nums.length; j++) {\n" +
+                        "                if (nums[j] == target - nums[i]) {\n" +
+                        "                    return new int[]{i, j};\n" +
+                        "                }\n" +
+                        "            }\n" +
+                        "        }\n" +
+                        "        return null;\n" +
+                        "    }\n" +
+                        "}\n" +
+                        "\n");
+
+
+        boolean result = compiler(filePath);
+        System.out.println(result);
         int[] nums = new int[]{1, 2, 3};
         int target = 3;
-        exec(className, nums, target);
+        Object res = exec(className, nums, target);
+        System.out.println(JSON.toJSON(res));
 
+        FileUtils.delete(filePath);
+        FileUtils.delete(classPath);
     }
 
 
