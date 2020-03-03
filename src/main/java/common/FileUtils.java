@@ -1,11 +1,13 @@
 package common;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.CollectionUtils;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
 
 /**
  * 文件处理类
@@ -51,20 +53,46 @@ public class FileUtils {
     }
 
     /**
-     * 删除指定位置的文件，禁止删除整个目录
+     * 删除指定位置的文件或目录
      *
-     * @param filePath 文件路径
+     * @param file 文件
      */
-    public static void delete(String filePath) {
-        File file = new File(filePath);
-        if (file.isFile()) {
-            if (!file.delete()) {
-                log.error("文件删除失败，file:{}", filePath);
-            }
-        } else {
-            log.error("请勿调用此方法删除目录");
+    public static void delete(File file) {
+        if (file.isDirectory()) {
+            //如果是目录，删除目录下的所有文件
+            deleteAllFile(file.listFiles());
+        }
+        //删除文件
+        if (!file.delete()) {
+            log.error("文件删除失败，file:{}", file.getAbsolutePath());
         }
     }
 
+    /**
+     * 删除指定位置文件夹下的所有文件，不删除本目录
+     *
+     * @param dirPath 文件夹路径
+     */
+    public static void deleteDir(String dirPath) {
+        File file = new File(dirPath);
+        if (file.isDirectory()) {
+            //删除文件夹下的所有文件
+            deleteAllFile(file.listFiles());
+        }
+    }
 
+    /**
+     * 删除多个文件(包含目录)
+     *
+     * @param files 文件列表(包含目录)
+     */
+    public static void deleteAllFile(File[] files) {
+        if (files == null || files.length == 0) {
+            log.info("删除文件为空");
+            return;
+        }
+        for (File f : files) {
+            delete(f);
+        }
+    }
 }

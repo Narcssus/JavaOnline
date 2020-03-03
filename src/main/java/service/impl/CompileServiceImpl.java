@@ -28,7 +28,7 @@ public class CompileServiceImpl {
     private static final String BASE_PATH = "D:\\WorkPlace\\";
 
 
-    public static boolean compiler(String filePath) {
+    public static boolean compiler(String... filePath) {
         JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         int result = compiler.run(null, null, null, filePath);
         return result == 0;
@@ -43,11 +43,8 @@ public class CompileServiceImpl {
             Class c = loader.loadClass(className);
             Object o = c.newInstance();
             //调用加载类的main方法
-            Method m = c.getMethod("twoSum", int[].class, int.class);
+            Method m = c.getMethod("runTest");
             Object res = m.invoke(o, args);
-
-//            Method m = c.getMethod("main", String[].class);
-//            Object res = m.invoke(null, (Object)new String[]{});
 
             return res;
         } catch (Exception e) {
@@ -77,16 +74,26 @@ public class CompileServiceImpl {
                         "}\n" +
                         "\n");
 
-
-        boolean result = compiler(filePath);
+        String testPath = BASE_PATH + "TestSet" + ".java";
+        String testClassPath = BASE_PATH + "TestSet" + ".class";
+        FileUtils.write(testPath,
+                "public class TestSet {\n" +
+                        "    public String runTest(){\n" +
+                        "        int[] nums = new int[]{1, 2, 3};\n" +
+                        "        int target = 3;\n" +
+                        "        Solution s = new Solution();\n" +
+                        "        int[] res = s.twoSum(nums,target);\n" +
+                        "        if(res.length == 2){\n" +
+                        "            return \"yes\";\n" +
+                        "        }\n" +
+                        "        return \"no\";\n" +
+                        "    }\n" +
+                        "}");
+        Boolean result = compiler(filePath,testPath);
         System.out.println(result);
-        int[] nums = new int[]{1, 2, 3};
-        int target = 3;
-        Object res = exec(className, nums, target);
+        Object res = exec("TestSet");
         System.out.println(JSON.toJSON(res));
-
-        FileUtils.delete(filePath);
-        FileUtils.delete(classPath);
+        FileUtils.deleteDir(BASE_PATH);
     }
 
 
