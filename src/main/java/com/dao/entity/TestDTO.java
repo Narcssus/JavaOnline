@@ -1,4 +1,4 @@
-package dao.entity;
+package com.dao.entity;
 
 public class TestDTO {
     private Long id;

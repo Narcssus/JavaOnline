@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="dao.mapper.TestDTOMapper" >
-  <resultMap id="BaseResultMap" type="dao.entity.TestDTO" >
+<mapper namespace="com.dao.mapper.TestDTOMapper" >
+  <resultMap id="BaseResultMap" type="com.dao.entity.TestDTO" >
     <id column="ID" property="id" jdbcType="BIGINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="dao.entity.TestDTO" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.dao.entity.TestDTO" extends="BaseResultMap" >
     <result column="TestSet" property="testset" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -25,11 +25,11 @@
     delete from test
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="dao.entity.TestDTO" >
+  <insert id="insert" parameterType="com.dao.entity.TestDTO" >
     insert into test (ID, TestSet)
     values (#{id,jdbcType=BIGINT}, #{testset,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="dao.entity.TestDTO" >
+  <insert id="insertSelective" parameterType="com.dao.entity.TestDTO" >
     insert into test
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -48,7 +48,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="dao.entity.TestDTO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dao.entity.TestDTO" >
     update test
     <set >
       <if test="testset != null" >
@@ -57,7 +57,7 @@
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="dao.entity.TestDTO" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dao.entity.TestDTO" >
     update test
     set TestSet = #{testset,jdbcType=LONGVARCHAR}
     where ID = #{id,jdbcType=BIGINT}

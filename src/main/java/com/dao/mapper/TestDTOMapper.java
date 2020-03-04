@@ -1,6 +1,6 @@
-package dao.mapper;
+package com.dao.mapper;
 
-import dao.entity.TestDTO;
+import com.dao.entity.TestDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

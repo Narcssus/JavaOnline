@@ -9,11 +9,6 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.example.entity
+  mapper-locations: classpath*:mapping/*Mapper.xml
+  type-aliases-package: com.dao.entity
 
-logging:
-  level:
-    com:
-      example:
-        mapper : debug
