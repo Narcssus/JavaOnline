@@ -9,7 +9,7 @@
         <commentGenerator>
             <property name="suppressDate" value="true"/>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-            <property name="suppressAllComments" value="true"/>
+            <property name="suppressAllComments" value="false"/>
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -18,24 +18,23 @@
                         password="1234">
         </jdbcConnection>
         <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
+            <property name="forceBigDecimals" value="true"/>
         </javaTypeResolver>
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.dao.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
         <!-- 生成映射文件的包名和位置-->
-        <sqlMapGenerator targetPackage="com.dao.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dao.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.dao.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="test" domainObjectName="TestDTO"
-               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false"/>
+        <table tableName="TM_QUESTION_SET" domainObjectName="TmQuestionSet"/>
+        <table tableName="TM_TEST_SET" domainObjectName="TmTestSet"/>
     </context>
 </generatorConfiguration>

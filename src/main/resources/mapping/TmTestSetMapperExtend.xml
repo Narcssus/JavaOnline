@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.mapper.TmTestSetMapper" >
+  <insert id="insertBatch" parameterType="com.entity.TmTestSet" >
+    insert into tm_test_set (TEST_ID, QUESTION_ID, TEST_INPUT, 
+      TEST_OUTPUT)
+    values (#{testId,jdbcType=VARCHAR}, #{questionId,jdbcType=VARCHAR}, #{testInput,jdbcType=VARCHAR}, 
+      #{testOutput,jdbcType=VARCHAR})
+  </insert>
+</mapper>
