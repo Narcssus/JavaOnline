@@ -13,7 +13,7 @@
             <property name="targetPackage" value="com.dao.mapper"/>
             <property name="targetPackageService" value="com.dao.service"/>
             <property name="targetPackageXml" value="mapping"/>
-            <property name="isOverWrite" value="false"/>
+            <property name="isOverWrite" value="true"/>
         </plugin>
         <commentGenerator type="com.narc.MyCommentGenerator">
             <property name="author" value="Narc"/>
