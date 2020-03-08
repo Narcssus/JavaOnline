@@ -1,15 +1,18 @@
 package com.dao.mapper;
 
 import com.entity.TmTestSet;
-import com.entity.example.TmTestSetExample;
+import com.entity.TmTestSetExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author NarcMybatisGenerator
+ * @date 2020-03-08
+*/
 @Mapper
 public interface TmTestSetMapper {
-    int countByExample(TmTestSetExample example);
+    long countByExample(TmTestSetExample example);
 
     int deleteByExample(TmTestSetExample example);
 

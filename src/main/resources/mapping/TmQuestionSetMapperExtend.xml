@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapper.TmQuestionSetMapperExtend">
+  <!--
+  注释
+  -->
+  <resultMap id="BaseResultMap" type="com.entity.TmQuestionSet">
+    <id column="QUESTION_ID" jdbcType="VARCHAR" property="questionId" />
+    <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    QUESTION_ID, QUESTION_DESC
+  </sql>
+  <!-- 该注释以下的内容不会被覆盖，请不要删除或修改此条注释内容-->
+</mapper>

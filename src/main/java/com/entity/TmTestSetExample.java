@@ -1,17 +1,17 @@
-package com.entity.example;
+package com.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TmQuestionSetExample {
+public class TmTestSetExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TmQuestionSetExample() {
-        oredCriteria = new ArrayList<Criteria>();
+    public TmTestSetExample() {
+        oredCriteria = new ArrayList<>();
     }
 
     public void setOrderByClause(String orderByClause) {
@@ -68,7 +68,7 @@ public class TmQuestionSetExample {
 
         protected GeneratedCriteria() {
             super();
-            criteria = new ArrayList<Criterion>();
+            criteria = new ArrayList<>();
         }
 
         public boolean isValid() {
@@ -102,6 +102,76 @@ public class TmQuestionSetExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        public Criteria andTestIdIsNull() {
+            addCriterion("TEST_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdIsNotNull() {
+            addCriterion("TEST_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdEqualTo(String value) {
+            addCriterion("TEST_ID =", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotEqualTo(String value) {
+            addCriterion("TEST_ID <>", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdGreaterThan(String value) {
+            addCriterion("TEST_ID >", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdGreaterThanOrEqualTo(String value) {
+            addCriterion("TEST_ID >=", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdLessThan(String value) {
+            addCriterion("TEST_ID <", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdLessThanOrEqualTo(String value) {
+            addCriterion("TEST_ID <=", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdLike(String value) {
+            addCriterion("TEST_ID like", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotLike(String value) {
+            addCriterion("TEST_ID not like", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdIn(List<String> values) {
+            addCriterion("TEST_ID in", values, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotIn(List<String> values) {
+            addCriterion("TEST_ID not in", values, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdBetween(String value1, String value2) {
+            addCriterion("TEST_ID between", value1, value2, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotBetween(String value1, String value2) {
+            addCriterion("TEST_ID not between", value1, value2, "testId");
+            return (Criteria) this;
         }
 
         public Criteria andQuestionIdIsNull() {
@@ -174,79 +244,148 @@ public class TmQuestionSetExample {
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescIsNull() {
-            addCriterion("QUSETION_DESC is null");
+        public Criteria andTestInputIsNull() {
+            addCriterion("TEST_INPUT is null");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescIsNotNull() {
-            addCriterion("QUSETION_DESC is not null");
+        public Criteria andTestInputIsNotNull() {
+            addCriterion("TEST_INPUT is not null");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescEqualTo(String value) {
-            addCriterion("QUSETION_DESC =", value, "qusetionDesc");
+        public Criteria andTestInputEqualTo(String value) {
+            addCriterion("TEST_INPUT =", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescNotEqualTo(String value) {
-            addCriterion("QUSETION_DESC <>", value, "qusetionDesc");
+        public Criteria andTestInputNotEqualTo(String value) {
+            addCriterion("TEST_INPUT <>", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescGreaterThan(String value) {
-            addCriterion("QUSETION_DESC >", value, "qusetionDesc");
+        public Criteria andTestInputGreaterThan(String value) {
+            addCriterion("TEST_INPUT >", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescGreaterThanOrEqualTo(String value) {
-            addCriterion("QUSETION_DESC >=", value, "qusetionDesc");
+        public Criteria andTestInputGreaterThanOrEqualTo(String value) {
+            addCriterion("TEST_INPUT >=", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescLessThan(String value) {
-            addCriterion("QUSETION_DESC <", value, "qusetionDesc");
+        public Criteria andTestInputLessThan(String value) {
+            addCriterion("TEST_INPUT <", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescLessThanOrEqualTo(String value) {
-            addCriterion("QUSETION_DESC <=", value, "qusetionDesc");
+        public Criteria andTestInputLessThanOrEqualTo(String value) {
+            addCriterion("TEST_INPUT <=", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescLike(String value) {
-            addCriterion("QUSETION_DESC like", value, "qusetionDesc");
+        public Criteria andTestInputLike(String value) {
+            addCriterion("TEST_INPUT like", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescNotLike(String value) {
-            addCriterion("QUSETION_DESC not like", value, "qusetionDesc");
+        public Criteria andTestInputNotLike(String value) {
+            addCriterion("TEST_INPUT not like", value, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescIn(List<String> values) {
-            addCriterion("QUSETION_DESC in", values, "qusetionDesc");
+        public Criteria andTestInputIn(List<String> values) {
+            addCriterion("TEST_INPUT in", values, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescNotIn(List<String> values) {
-            addCriterion("QUSETION_DESC not in", values, "qusetionDesc");
+        public Criteria andTestInputNotIn(List<String> values) {
+            addCriterion("TEST_INPUT not in", values, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescBetween(String value1, String value2) {
-            addCriterion("QUSETION_DESC between", value1, value2, "qusetionDesc");
+        public Criteria andTestInputBetween(String value1, String value2) {
+            addCriterion("TEST_INPUT between", value1, value2, "testInput");
             return (Criteria) this;
         }
 
-        public Criteria andQusetionDescNotBetween(String value1, String value2) {
-            addCriterion("QUSETION_DESC not between", value1, value2, "qusetionDesc");
+        public Criteria andTestInputNotBetween(String value1, String value2) {
+            addCriterion("TEST_INPUT not between", value1, value2, "testInput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputIsNull() {
+            addCriterion("TEST_OUTPUT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputIsNotNull() {
+            addCriterion("TEST_OUTPUT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputEqualTo(String value) {
+            addCriterion("TEST_OUTPUT =", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputNotEqualTo(String value) {
+            addCriterion("TEST_OUTPUT <>", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputGreaterThan(String value) {
+            addCriterion("TEST_OUTPUT >", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputGreaterThanOrEqualTo(String value) {
+            addCriterion("TEST_OUTPUT >=", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputLessThan(String value) {
+            addCriterion("TEST_OUTPUT <", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputLessThanOrEqualTo(String value) {
+            addCriterion("TEST_OUTPUT <=", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputLike(String value) {
+            addCriterion("TEST_OUTPUT like", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputNotLike(String value) {
+            addCriterion("TEST_OUTPUT not like", value, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputIn(List<String> values) {
+            addCriterion("TEST_OUTPUT in", values, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputNotIn(List<String> values) {
+            addCriterion("TEST_OUTPUT not in", values, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputBetween(String value1, String value2) {
+            addCriterion("TEST_OUTPUT between", value1, value2, "testOutput");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestOutputNotBetween(String value1, String value2) {
+            addCriterion("TEST_OUTPUT not between", value1, value2, "testOutput");
             return (Criteria) this;
         }
     }
 
     public static class Criteria extends GeneratedCriteria {
-
         protected Criteria() {
             super();
         }

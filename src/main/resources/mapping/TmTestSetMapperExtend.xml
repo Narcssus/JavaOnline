@@ -1,10 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.mapper.TmTestSetMapper" >
-  <insert id="insertBatch" parameterType="com.entity.TmTestSet" >
-    insert into tm_test_set (TEST_ID, QUESTION_ID, TEST_INPUT, 
-      TEST_OUTPUT)
-    values (#{testId,jdbcType=VARCHAR}, #{questionId,jdbcType=VARCHAR}, #{testInput,jdbcType=VARCHAR}, 
-      #{testOutput,jdbcType=VARCHAR})
-  </insert>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapper.TmTestSetMapperExtend">
+  <!--
+  注释
+  -->
+  <resultMap id="BaseResultMap" type="com.entity.TmTestSet">
+    <id column="TEST_ID" jdbcType="VARCHAR" property="testId" />
+    <result column="QUESTION_ID" jdbcType="VARCHAR" property="questionId" />
+    <result column="TEST_INPUT" jdbcType="VARCHAR" property="testInput" />
+    <result column="TEST_OUTPUT" jdbcType="VARCHAR" property="testOutput" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TEST_ID, QUESTION_ID, TEST_INPUT, TEST_OUTPUT
+  </sql>
+  <!-- 该注释以下的内容不会被覆盖，请不要删除或修改此条注释内容-->
 </mapper>

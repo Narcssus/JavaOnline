@@ -1,43 +1,43 @@
 package com.entity;
 
+import javax.validation.constraints.*;
+import lombok.Data;
+
+/**
+ * tm_test_set
+ * 1234
+ * 
+ * @author Narc
+ * @date 2020-03-08
+ */
+@Data
 public class TmTestSet {
+    /**
+     * TEST_ID
+     * 主键
+     */
+    @Size(max=64)
+    @NotNull
     private String testId;
 
+    /**
+     * QUESTION_ID
+     * 问题编号
+     */
+    @Size(max=64)
     private String questionId;
 
+    /**
+     * TEST_INPUT
+     * 测试集输入
+     */
+    @Size(max=255)
     private String testInput;
 
+    /**
+     * TEST_OUTPUT
+     * 
+     */
+    @Size(max=255)
     private String testOutput;
-
-    public String getTestId() {
-        return testId;
-    }
-
-    public void setTestId(String testId) {
-        this.testId = testId == null ? null : testId.trim();
-    }
-
-    public String getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(String questionId) {
-        this.questionId = questionId == null ? null : questionId.trim();
-    }
-
-    public String getTestInput() {
-        return testInput;
-    }
-
-    public void setTestInput(String testInput) {
-        this.testInput = testInput == null ? null : testInput.trim();
-    }
-
-    public String getTestOutput() {
-        return testOutput;
-    }
-
-    public void setTestOutput(String testOutput) {
-        this.testOutput = testOutput == null ? null : testOutput.trim();
-    }
 }
